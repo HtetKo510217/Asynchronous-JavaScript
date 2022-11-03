@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Htet Ko",
+        "job" : "web developer",
+        "age" : 26
+    },
+    {
+        "name" : "Nan dar",
+        "job" : "andriod developer",
+        "age" : 25
+    },
+    {
+        "name" : "mg mg",
+        "job" : "sale person",
+        "age" : 28
+    },
+    {
+        "name" : "aung aung",
+        "job" : "markting manager",
+        "age" : 30
+    },
+    {
+        "name" : "kyaw kyaw",
+        "job" : "student",
+        "age" : 18
+    }
+]
