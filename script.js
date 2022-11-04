@@ -86,3 +86,24 @@ resolveCallbackHell('test.json')
 }) 
 
 /* ---- / Resolve callback hell function with promise ------*/
+
+/* ----  Using the Fetch API ------*/
+    fetch('test.json')
+    .then((response)=> {
+        
+        if(response.status === 404) {
+            //error throw
+            throw new Error('Your link is not avaliable');
+        }
+
+        // retrn promise
+        return response.json(); 
+    })
+    .then((datas)=> {
+        console.log(datas);
+    })
+    .catch((err)=> {
+        console.log(err.message);
+    })
+
+/* ---- / Using the Fetch API ------*/
