@@ -51,3 +51,38 @@ getRequest("test.json",(data,err)=> {
 });
 
 /* ---- /Code Refectoring Fetch Api Old style Version ------*/
+
+/* ---- Resolve callback hell function with promise ------*/
+
+const resolveCallbackHell = (resource)=> {
+   
+    return new Promise((resolve,reject)=> {
+        const request = new XMLHttpRequest();
+
+        request.addEventListener('readystatechange',function(){
+            if(this.readyState === 4 && this.status === 200) {
+                const datas = JSON.parse(request.responseText);
+                console.log(resolve(datas));
+            }else if(this.status === 404) {
+                console.log(reject('your link is not avaliable'));
+            }
+        });
+    
+        request.open('GET',resource);
+        request.send();
+    })
+}
+
+resolveCallbackHell('test.json')
+.then((datas)=>{
+    datas.map(data => console.log(data));
+    return resolveCallbackHell('test2.json');
+})
+.then((datas)=>{
+    datas.map(data => console.log(data));
+})
+.catch((err) => {
+    console.log(err);
+}) 
+
+/* ---- / Resolve callback hell function with promise ------*/
