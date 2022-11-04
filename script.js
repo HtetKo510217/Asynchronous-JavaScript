@@ -52,6 +52,7 @@ getRequest("test.json",(data,err)=> {
 
 /* ---- /Code Refectoring Fetch Api Old style Version ------*/
 
+
 /* ---- Resolve callback hell function with promise ------*/
 
 const resolveCallbackHell = (resource)=> {
@@ -87,6 +88,7 @@ resolveCallbackHell('test.json')
 
 /* ---- / Resolve callback hell function with promise ------*/
 
+
 /* ----  Using the Fetch API ------*/
     fetch('test.json')
     .then((response)=> {
@@ -107,3 +109,25 @@ resolveCallbackHell('test.json')
     })
 
 /* ---- / Using the Fetch API ------*/
+
+
+/* ----  Using async await ------*/
+
+    const getJson = async ()=> {
+        const response = await fetch('test2.json');
+        if(response.status === 404) {
+            throw new Error('Page not found');
+        }
+        const datas =  await  response.json();
+        return datas
+    }
+
+    getJson()
+    .then((datas)=>{
+        console.log(datas);
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    })
+
+/* ----  / Using async await ------*/
